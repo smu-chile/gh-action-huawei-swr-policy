@@ -10,7 +10,7 @@ function main() {
   sanitize "${INPUT_SWR_REGISTRY}" "swr_registry"
   sanitize "${INPUT_BEHAVIOR}" "behavior"
 
-  shopt -s nocasematch;
+  # shopt -s nocasematch;
   
   check_behavior_mode
   huawei_configure
