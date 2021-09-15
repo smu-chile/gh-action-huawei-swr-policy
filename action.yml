@@ -1,0 +1,59 @@
+name: HUAWEI SWR IMAGE UPLOAD WITH REPO AND POLICY
+author: Fredy Olarte 
+branding:
+  icon: upload-cloud
+  color: orange
+description: Create Docker images and push into a SWR repository. It can create it and attach a policy to store a max amount
+inputs:
+  access_key_id:
+    description: The HUAWEI access key id
+    required: true
+  sSWRet_access_key:
+    description: The HUAWEI sSWRet access key
+    required: true
+  SWR_registry:
+    description: The HUAWEI SWR Registry
+    required: true
+  repo:
+    description: Name of your SWR repository
+    required: true
+  region:
+    description: The HUAWEI region
+    default: "la-south-2"
+    required: true
+  tags:
+    description: Comma-separated string of SWR image tags
+    default: "latest"
+    required: false
+  scan_images:
+    description: Set this to true so you allow the repository to scan newly upload images
+    default: "true"
+    required: false
+  dockerfile:
+    description: Name of Dockerfile to use
+    default: "Dockerfile"
+    required: false
+  extra_build_args:
+    description: Extra flags to pass to docker build (see docs.docker.com/engine/reference/commandline/build)
+    default: ""
+    required: false
+  path:
+    description: Path to Dockerfile, defaults to the working directory
+    default: "."
+    required: false
+  prebuild_script:
+    description: Relative path from top-level to script to run before Docker build
+    required: false
+  behavior:
+    description: Builds or just upload a previously build image
+    default: "build"
+    required: true
+  image_name:
+    description: Builds or just upload a previously build image
+    required: false
+outputs:
+  image:
+    description: 'The created image name'
+runs:
+  using: docker
+  image: Dockerfile

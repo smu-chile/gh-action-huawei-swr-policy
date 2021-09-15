@@ -1,0 +1,18 @@
+name: Test
+on: [push,workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Create and upload image
+      uses: ./
+      with:
+        access_key_id: ${{ secrets.HUAWEI_ACCESS_KEY_ID }}
+        secret_access_key: ${{ secrets.HUAWEI_SECRET_ACCESS_KEY }}
+        swr_registry: ${{ secrets.SWR_REGISTRY }}
+        region: la-south-2
+        repo: ${{ github.repository }}
+        tags: dev-${{ github.run_number }}
