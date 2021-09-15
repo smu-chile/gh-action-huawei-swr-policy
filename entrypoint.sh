@@ -55,7 +55,7 @@ function huawei_configure() {
 
 function login() {
   echo "== START LOGIN"
-  export LOGIN_COMMAND=$(docker login -u $HUAWEI_DEFAULT_REGION@$HUAWEI_ACCESS_KEY_ID -p  $HUAWEI_LOGIN $HUAWEI_REGISTRY)
+  export LOGIN_COMMAND=$(docker login -u $HUAWEI_DEFAULT_REGION@$HUAWEI_ACCESS_KEY_ID -p  $HUAWEI_LOGIN ${INPUT_SWR_REGISTRY})
   echo $LOGIN_COMMAND
   echo "== FINISHED LOGIN"
 }
