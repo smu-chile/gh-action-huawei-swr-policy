@@ -8,10 +8,10 @@ inputs:
   access_key_id:
     description: The HUAWEI access key id
     required: true
-  sSWRet_access_key:
-    description: The HUAWEI sSWRet access key
+  secret_access_key:
+    description: The HUAWEI secret access key
     required: true
-  SWR_registry:
+  swr_registry:
     description: The HUAWEI SWR Registry
     required: true
   repo:
