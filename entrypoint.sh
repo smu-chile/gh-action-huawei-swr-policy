@@ -10,7 +10,7 @@ function main() {
   sanitize "${INPUT_SWR_REGISTRY}" "swr_registry"
   sanitize "${INPUT_BEHAVIOR}" "behavior"
 
-  # shopt -s nocasematch;
+  #     
   
   check_behavior_mode
   huawei_configure
@@ -25,7 +25,7 @@ function main() {
   else
     docker_tag $INPUT_TAGS $INPUT_SWR_REGISTRY
   fi;
-  docker_push_to_swr$INPUT_TAGS $INPUT_SWR_REGISTRY
+  docker_push_to_swr $INPUT_TAGS $INPUT_SWR_REGISTRY
 }
 
 function check_behavior_mode() {
