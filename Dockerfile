@@ -5,9 +5,9 @@ RUN apk update \
   && apk add --no-cache --update openssl coreutils bash \
   && rm -rf /var/cache/apk/* 
 
-ADD entrypoint.sh /entrypoint.sh
+# ADD entrypoint.sh /entrypoint.sh
 
-RUN ["chmod", "+x", "/entrypoint.sh"]
+# RUN ["chmod", "+x", "/entrypoint.sh"]
 
-ENTRYPOINT ["sh","/entrypoint.sh"]
+# ENTRYPOINT ["sh","/entrypoint.sh"]
 
