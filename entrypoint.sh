@@ -49,7 +49,7 @@ function huawei_configure() {
   export HUAWEI_ACCESS_KEY_ID=${INPUT_ACCESS_KEY_ID}
   export HUAWEI_SECRET_ACCESS_KEY=${INPUT_SECRET_ACCESS_KEY}
   export HUAWEI_DEFAULT_REGION=${INPUT_REGION}
-  export HUAWEI_LOGIN=$(printf "$access_key_id" | openssl dgst -binary -sha256 -hmac "$secret_access_key" | od -An -vtx1 | sed 's/[ \n]//g' | sed 'N;s/\n//')
+  export HUAWEI_LOGIN=$(printf "${INPUT_ACCESS_KEY_ID}" | openssl dgst -binary -sha256 -hmac "${INPUT_SECRET_ACCESS_KEY}" | od -An -vtx1 | sed 's/[ \n]//g' | sed 'N;s/\n//')
 
 }
 
