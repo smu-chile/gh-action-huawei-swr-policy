@@ -107,7 +107,7 @@ function docker_push_to_swr() {
   echo "== FINISHED PUSH TO SWR"
 }
 
-}
+
 function create_token() {
   echo "== START CREATE TOKEN TO AUTENTICATE SWR"
   export HUAWEI_USER=${INPUT_HUAWEI_USER}
