@@ -13,7 +13,7 @@ function main() {
   sanitize "${INPUT_HUAWEI_DOMAIN}" "huawei_domain"
   sanitize "${INPUT_ENPOINT_TOKEN}" "enpoint_api_token"
   sanitize "${INPUT_ENPOINT_SWR}" "enpoint_api_swr"
-  sanitize "${INPUT_ORGANIZATION}" "swr_namespace"
+  sanitize "${INPUT_NAMESPACE}" "swr_namespace"
   sanitize "${INPUT_REPOS}" "swr_repos"
 
   #     
@@ -115,14 +115,14 @@ function create_token() {
   export HUAWEI_DOMAIN=${INPUT_HUAWEI_DOMAIN}
   export HUAWEI_TOKEN=$(curl -s -ik -X POST -H 'Content-Type=application/json;charset=utf8'  \
   -d '{"auth": {"identity": {"methods": ["password"],"password": {"user": {"domain": {"name": "'"$HUAWEI_DOMAIN"'"},"name": "'"$HUAWEI_USER"'","password": "'"$HUAWEI_PASSWORD"'"}},},"scope": {"domain": {"name": "'"$HUAWEI_DOMAIN"'"}}}}'  \
-  https://iam.myhuaweicloud.com/v3/auth/tokens\?nocatalog\=true |grep X-Subject-Token | sed 's/X-Subject-Token: //')
+  https://${INPUT_ENPOINT_TOKEN}/v3/auth/tokens\?nocatalog\=true |grep X-Subject-Token | sed 's/X-Subject-Token: //')
   echo "== FINISHED CREATE TOKEN"
 
 }
 
 function check_swr_policy() {
   echo "== START CHECK POLICY TO SWR"
-  export SWR_POLICY=$(curl --location --request GET 'https://swr-api.la-south-2.myhuaweicloud.com/v2/manage/namespaces/smu-chile/repos/harness-poc/retentions' \
+  export SWR_POLICY=$(curl --location --request GET 'https://swr-api.la-south-2.myhuaweicloud.com/v2/manage/namespaces/"'"${INPUT_NAMESPACE}"'"/repos/"'"${INPUT_REPOS}"'"/retentions' \
 --header 'Content-Type: application/json;charset=utf8' \
 --header "X-Auth-Token: $HUAWEI_TOKEN" |cut -c 3-9)
   echo $SWR_POLICY
@@ -133,7 +133,7 @@ function create_swr_policy() {
   echo "== START CREATE POLICY TO SWR"
   
   if [ -z "$SWR_POLICY" ]; then 
-  curl --location --request POST 'https://swr-api.la-south-2.myhuaweicloud.com/v2/manage/namespaces/smu-chile/repos/harness-poc/retentions' \
+  curl --location --request POST 'https://"'"${INPUT_ENPOINT_SWR}"'"/v2/manage/namespaces/smu-chile/repos/harness-poc/retentions' \
 --header 'Content-Type: application/json;charset=utf8' \
 --header "X-Auth-Token: $HUAWEI_TOKEN" \
 --data-raw '{
