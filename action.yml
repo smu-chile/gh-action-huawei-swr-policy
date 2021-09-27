@@ -51,6 +51,30 @@ inputs:
   image_name:
     description: Builds or just upload a previously build image
     required: false
+  huawei_user:
+    description: User Service Acount 
+    required: true
+  huawei_password:
+    description: Password Service Acount 
+    required: true
+  huawei_domain:
+    description: Domain Service Acount 
+    required: true
+  enpoint_api_token:
+    description: Request address for calling token API.
+    default: iam.myhuaweicloud.com 
+    required: true  
+  enpoint_api_swr:
+    description: Request address for calling swr API.
+    default: swr-api.la-south-2.myhuaweicloud.com 
+    required: true
+  swr_namespace:
+    description: Your swr organization. 
+    required: true
+    default: smu-chile
+  swr_repos:
+    description: Your swr repo. 
+    required: true             
 outputs:
   image:
     description: 'The created image name'
