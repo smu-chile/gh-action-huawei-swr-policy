@@ -2,7 +2,11 @@
 set -e
 
 function main() {
-  
+
+  echo  "${INPUT_SWR_REGISTRY}"
+  echo  "${INPUT_ENPOINT_TOKEN}"
+  echo  "${INPUT_ENPOINT_SWR}"
+  echo  "${INPUT_REGION}" 
   sanitize "${INPUT_ACCESS_KEY_ID}" "access_key_id"
   sanitize "${INPUT_SECRET_ACCESS_KEY}" "secret_access_key"
   sanitize "${INPUT_REGION}" "region"
