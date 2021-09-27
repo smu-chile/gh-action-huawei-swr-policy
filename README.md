@@ -5,11 +5,11 @@ This Action allows you to create Docker images and push into a SWR repository. A
 ## Parameters
 | Parameter           | Type     | Default                                | Description                                                                                                              |
 | ------------------- | -------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `access_key_id`     | `string` |                                        | Your AWS access key id                                                                                                   |
-| `secret_access_key` | `string` |                                        | Your AWS secret access key                                                                                               |
+| `access_key_id`     | `string` |                                        | Your HUAWEI access key id                                                                                                   |
+| `secret_access_key` | `string` |                                        | Your HUAWEI secret access key                                                                                               |
 | `swr_registry`      | `string` |                                        | Your SWR HUAWEI                                                                                                          |
 | `repo`              | `string` |                                        | Name of your SWR repository                                                                                              |
-| `region`            | `string` |                                        | Your AWS region                                                                                                          |
+| `region`            | `string` |                                        | Your HUAWEI region                                                                                                          |
 | `tags`              | `string` | `latest`                               | Comma-separated string of SWR image tags (ex latest,1.0.0,)                                                              |
 | `dockerfile`        | `string` | `Dockerfile`                           | Name of Dockerfile to use                                                                                                |
 | `extra_build_args`  | `string` | `""`                                   | Extra flags to pass to docker build (see docs.docker.com/engine/reference/commandline/build)                             |
