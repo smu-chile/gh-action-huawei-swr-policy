@@ -11,8 +11,12 @@ function main() {
   sanitize "${INPUT_HUAWEI_USER}" "huawei_user"
   sanitize "${INPUT_HUAWEI_PASSWORD}" "huawei_password"
   sanitize "${INPUT_HUAWEI_DOMAIN}" "huawei_domain"
+  sanitize "${INPUT_ENPOINT_TOKEN}" "enpoint_api_token"
+  sanitize "${INPUT_ENPOINT_SWR}" "enpoint_api_swr"
+  sanitize "${INPUT_NAMESPACE}" "swr_namespace"
+  sanitize "${INPUT_REPOS}" "swr_repos"
 
-  #     
+   
   
   check_behavior_mode
   huawei_configure
@@ -118,7 +122,7 @@ function create_token() {
 
 function check_swr_policy() {
   echo "== START CHECK POLICY TO SWR"
-  export SWR_POLICY=$(curl --location --request GET 'https://swr-api.la-south-2.myhuaweicloud.com/v2/manage/namespaces/"'"${INPUT_NAMESPACE}"'"/repos/"'"${INPUT_REPOS}"'"/retentions' \
+  export SWR_POLICY=$(curl --location --request GET '"'"${INPUT_ENPOINT_SWR}"'"/v2/manage/namespaces/"'"${INPUT_NAMESPACE}"'"/repos/"'"${INPUT_REPOS}"'"/retentions' \
 --header 'Content-Type: application/json;charset=utf8' \
 --header "X-Auth-Token: $HUAWEI_TOKEN" |cut -c 3-9)
   echo $SWR_POLICY
@@ -129,7 +133,7 @@ function create_swr_policy() {
   echo "== START CREATE POLICY TO SWR"
   
   if [ -z "$SWR_POLICY" ]; then 
-  curl --location --request POST 'https://"'"${INPUT_ENPOINT_SWR}"'"/v2/manage/namespaces/smu-chile/repos/harness-poc/retentions' \
+  curl --location --request POST 'https://"'"${INPUT_ENPOINT_SWR}"'"/v2/manage/namespaces/"'"${INPUT_NAMESPACE}"'"/repos/"'"${INPUT_REPOS}"'"/retentions' \
 --header 'Content-Type: application/json;charset=utf8' \
 --header "X-Auth-Token: $HUAWEI_TOKEN" \
 --data-raw '{
