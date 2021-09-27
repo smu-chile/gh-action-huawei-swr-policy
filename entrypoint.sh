@@ -11,8 +11,6 @@ function main() {
   sanitize "${INPUT_HUAWEI_USER}" "huawei_user"
   sanitize "${INPUT_HUAWEI_PASSWORD}" "huawei_password"
   sanitize "${INPUT_HUAWEI_DOMAIN}" "huawei_domain"
-  sanitize "${INPUT_NAMESPACE}" "swr_namespace"
-  sanitize "${INPUT_REPOS}" "swr_repos"
 
   #     
   
