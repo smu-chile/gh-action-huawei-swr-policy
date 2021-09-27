@@ -40,12 +40,14 @@ jobs:
         region: la-south-2
         repo: ${{ github.repository }}
         tags: dev-${{ github.run_number }}
+        behavior: upload
+        image_name: ${{ env.IMAGE_NAME }}
         huawei_user: ${{ secrets.HUAWEI_USER }}
         huawei_password: ${{ secrets.HUAWEI_PASSWORD }}
         huawei_domain: ${{ secrets.HUAWEI_DOMAIN }}
         enpoint_token: iam.myhuaweicloud.com
         enpoint_swr: swr-api.la-south-2.myhuaweicloud.com
-        swr_organization: smu-chile
+        swr_namespace: smu-chile
         swr_repos: docker/repo
 ```
 
