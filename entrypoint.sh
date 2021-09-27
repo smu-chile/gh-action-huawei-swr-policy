@@ -122,7 +122,7 @@ function create_token() {
 
 function check_swr_policy() {
   echo "== START CHECK POLICY TO SWR"
-  export SWR_POLICY=$(curl --location --request GET '"'"${INPUT_ENPOINT_SWR}"'"/v2/manage/namespaces/"'"${INPUT_NAMESPACE}"'"/repos/"'"${INPUT_REPOS}"'"/retentions' \
+  export SWR_POLICY=$(curl --location --request GET 'https://"'"${INPUT_ENPOINT_SWR}"'"/v2/manage/namespaces/"'"${INPUT_NAMESPACE}"'"/repos/"'"${INPUT_REPOS}"'"/retentions' \
 --header 'Content-Type: application/json;charset=utf8' \
 --header "X-Auth-Token: $HUAWEI_TOKEN" |cut -c 3-9)
   echo $SWR_POLICY
