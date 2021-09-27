@@ -61,15 +61,15 @@ inputs:
     description: Domain Service Acount 
     required: true
   enpoint_api_token:
-    description: Request address for calling token API.
-    default: iam.myhuaweicloud.com 
+    description: Request address for calling token API
+    default: "iam.myhuaweicloud.com" 
     required: true  
   enpoint_api_swr:
-    description: Request address for calling swr API.
-    default: swr-api.la-south-2.myhuaweicloud.com 
+    description: Request address for calling swr API
+    default: "swr-api.la-south-2.myhuaweicloud.com" 
     required: true
   swr_namespace:
-    description: Your swr organization name. 
+    description: Your swr organization name
     required: true
     default: smu-chile
   swr_repos:

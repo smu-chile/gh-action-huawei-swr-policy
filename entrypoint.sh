@@ -11,10 +11,10 @@ function main() {
   sanitize "${INPUT_HUAWEI_USER}" "huawei_user"
   sanitize "${INPUT_HUAWEI_PASSWORD}" "huawei_password"
   sanitize "${INPUT_HUAWEI_DOMAIN}" "huawei_domain"
-  "${INPUT_ENPOINT_TOKEN}" "enpoint_api_token"
-  "${INPUT_ENPOINT_SWR}" "enpoint_api_swr"
-  "${INPUT_NAMESPACE}" "swr_namespace"
-  "${INPUT_REPOS}" "swr_repos"
+  sanitize "${INPUT_ENPOINT_TOKEN}" "enpoint_api_token"
+  sanitize "${INPUT_ENPOINT_SWR}" "enpoint_api_swr"
+  sanitize "${INPUT_NAMESPACE}" "swr_namespace"
+  sanitize "${INPUT_REPOS}" "swr_repos"
 
    
   
