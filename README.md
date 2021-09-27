@@ -19,8 +19,8 @@ This Action allows you to create Docker images and push into a SWR repository. A
 | `huawei_user`       | `string` |                                        | HUAWEI user is necesary for create API token                                                                             |
 | `huawei_password`   | `string` |                                        | HUAWEI password  is necesary for create API token                                                                        |
 | `huawei_domain`     | `string` |                                        | HUAWEI Domain is necesary for create API token                                                                           |
-| `enpoint_api_token` | `string` | `iam.myhuaweicloud.com`                | Address of the server bearing the REST service. The endpoint varies between services in different regions                |
-| `enpoint_api_swr`   | `string` | `swr-api.la-south-2.myhuaweicloud.com` | Address of the server SWR bearing the REST service. The endpoint varies between services in different regions            |
+| `enpoint_token`     | `string` | `iam.myhuaweicloud.com`                | Address of the server bearing the REST service. The endpoint varies between services in different regions                |
+| `enpoint_swr`       | `string` | `swr-api.la-south-2.myhuaweicloud.com` | Address of the server SWR bearing the REST service. The endpoint varies between services in different regions            |
 | `swr_namespace`     | `string` | `smu-chile`                            | SWR Organization name                                                                                                    |
 | `swr_repos`         | `string` |                                        | Image repository name                                                                                                    |
 
@@ -43,8 +43,8 @@ jobs:
         huawei_user: ${{ secrets.HUAWEI_USER }}
         huawei_password: ${{ secrets.HUAWEI_PASSWORD }}
         huawei_domain: ${{ secrets.HUAWEI_DOMAIN }}
-        enpoint_api_token: iam.myhuaweicloud.com
-        enpoint_api_swr: swr-api.la-south-2.myhuaweicloud.com
+        enpoint_token: iam.myhuaweicloud.com
+        enpoint_swr: swr-api.la-south-2.myhuaweicloud.com
         swr_organization: smu-chile
         swr_repos: docker/repo
 ```
