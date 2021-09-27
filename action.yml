@@ -63,18 +63,18 @@ inputs:
   enpoint_api_token:
     description: Request address for calling token API.
     default: "iam.myhuaweicloud.com" 
-    required: false  
+    required: true  
   enpoint_api_swr:
     description: Request address for calling swr API.
     default: "swr-api.la-south-2.myhuaweicloud.com" 
-    required: false
+    required: true
   swr_namespace:
     description: Your swr organization name. 
-    required: false
+    required: true
     default: smu-chile
   swr_repos:
     description: Your swr image repository name. 
-    required: false             
+    required: true             
 outputs:
   image:
     description: 'The created image name'
