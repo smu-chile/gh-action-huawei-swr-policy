@@ -60,11 +60,11 @@ inputs:
   huawei_domain:
     description: Domain Service Acount 
     required: true
-  enpoint_api_token:
+  enpoint_token:
     description: Request address for calling token API
     default: "iam.myhuaweicloud.com" 
     required: true  
-  enpoint_api_swr:
+  enpoint_swr:
     description: Request address for calling swr API
     default: "swr-api.la-south-2.myhuaweicloud.com" 
     required: true
