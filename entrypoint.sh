@@ -3,10 +3,6 @@ set -e
 
 function main() {
 
-  echo  "${INPUT_SWR_REGISTRY}"
-  echo  "${INPUT_ENPOINT_TOKEN}"
-  echo  "${INPUT_ENPOINT_SWR}"
-  echo  "${INPUT_REGION}" 
   sanitize "${INPUT_ACCESS_KEY_ID}" "access_key_id"
   sanitize "${INPUT_SECRET_ACCESS_KEY}" "secret_access_key"
   sanitize "${INPUT_REGION}" "region"
@@ -17,8 +13,8 @@ function main() {
   sanitize "${INPUT_HUAWEI_DOMAIN}" "huawei_domain"
   sanitize "${INPUT_ENPOINT_TOKEN}" "enpoint_api_token"
   sanitize "${INPUT_ENPOINT_SWR}" "enpoint_api_swr"
-  sanitize "${INPUT_NAMESPACE}" "swr_namespace"
-  sanitize "${INPUT_REPOS}" "swr_repos"
+  sanitize "${INPUT_SWR_NAMESPACE}" "swr_namespace"
+  sanitize "${INPUT_SWR_REPOS}" "swr_repos"
 
    
   
