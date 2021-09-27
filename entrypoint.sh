@@ -125,9 +125,14 @@ function create_token() {
 
 }
 
+  echo "${INPUT_ENPOINT_SWR}"
+  echo "${INPUT_ENPOINT_TOKEN}"
+  echo "${INPUT_SWR_NAMESPACE}"
+  echo "${INPUT_SWR_REPOS}"
+
 function check_swr_policy() {
   echo "== START CHECK POLICY TO SWR"
-  export SWR_POLICY=$(curl --location --request GET 'https://"'"${INPUT_ENPOINT_SWR}"'"/v2/manage/namespaces/"'"${INPUT_SWR_NAMESPACE}"'"/repos/"'"${INPUT_SWR_REPOS}"'"/retentions' \
+  export SWR_POLICY=$(curl --location --request GET https://${INPUT_ENPOINT_SWR}/v2/manage/namespaces/${INPUT_SWR_NAMESPACE}/repos/${INPUT_SWR_REPOS}/retentions \
 --header 'Content-Type: application/json;charset=utf8' \
 --header "X-Auth-Token: $HUAWEI_TOKEN" |cut -c 3-9)
   echo $SWR_POLICY
@@ -138,8 +143,8 @@ function create_swr_policy() {
   echo "== START CREATE POLICY TO SWR"
   
   if [ -z "$SWR_POLICY" ]; then 
-  curl --location --request POST 'https://"'"${INPUT_ENPOINT_SWR}"'"/v2/manage/namespaces/"'"${INPUT_SWR_NAMESPACE}"'"/repos/"'"${INPUT_SWR_REPOS}"'"/retentions' \
---header 'Content-Type: application/json;charset=utf8' \
+  curl --location --request POST https://${INPUT_ENPOINT_SWR}/v2/manage/namespaces/${INPUT_SWR_NAMESPACE}/repos/${INPUT_SWR_REPOS}/retentions \
+--header Content-Type: application/json;charset=utf8 \
 --header "X-Auth-Token: $HUAWEI_TOKEN" \
 --data-raw '{
     "algorithm": "or",
