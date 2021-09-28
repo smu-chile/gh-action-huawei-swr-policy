@@ -136,7 +136,7 @@ function create_swr_policy() {
   
   if [ -z "$SWR_POLICY" ]; then 
   curl --location --request POST https://${INPUT_ENPOINT_SWR}/v2/manage/namespaces/${INPUT_SWR_NAMESPACE}/repos/${INPUT_SWR_REPOS}/retentions \
---header Content-Type: application/json;charset=utf8 \
+--header 'Content-Type: application/json;charset=utf8' \
 --header "X-Auth-Token: $HUAWEI_TOKEN" \
 --data-raw '{
     "algorithm": "or",
