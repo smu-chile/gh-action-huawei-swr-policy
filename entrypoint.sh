@@ -3,10 +3,6 @@ set -e
 
 function main() {
   
-  echo "${INPUT_ENPOINT_SWR}"
-  echo "${INPUT_ENPOINT_TOKEN}"
-  echo "${INPUT_SWR_NAMESPACE}"
-  echo "${INPUT_SWR_REPOS}"
    
   sanitize "${INPUT_ACCESS_KEY_ID}" "access_key_id"
   sanitize "${INPUT_SECRET_ACCESS_KEY}" "secret_access_key"
@@ -125,10 +121,6 @@ function create_token() {
 
 }
 
-  echo "${INPUT_ENPOINT_SWR}"
-  echo "${INPUT_ENPOINT_TOKEN}"
-  echo "${INPUT_SWR_NAMESPACE}"
-  echo "${INPUT_SWR_REPOS}"
 
 function check_swr_policy() {
   echo "== START CHECK POLICY TO SWR"
