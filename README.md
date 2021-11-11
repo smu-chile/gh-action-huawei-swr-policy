@@ -49,6 +49,7 @@ jobs:
         enpoint_swr: swr-api.la-south-2.myhuaweicloud.com
         swr_namespace: smu-chile
         swr_repos: docker/repo
+        dockerfile: Dockerfile
 ```
 
 ## Reference
