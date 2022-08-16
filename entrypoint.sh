@@ -143,12 +143,16 @@ function create_swr_policy() {
     "rules": [
         {
             "params": {
-                "num": "5"
+                "num": "7"
             },
             "tag_selectors": [
                 {
                     "kind": "label",
-                    "pattern": "v5"
+                    "pattern": "v3"
+                },
+                {
+                    "kind": "regexp",
+                    "pattern": "prod-*"
                 }
             ],
             "template": "tag_rule"
