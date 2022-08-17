@@ -142,8 +142,9 @@ function create_swr_policy() {
     "algorithm": "or",
     "rules": [
         {
+            "template": "date_rule",
             "params": {
-                "num": "7"
+                "num": "5"
             },
             "tag_selectors": [
                 {
@@ -155,7 +156,7 @@ function create_swr_policy() {
                     "pattern": "prod-*"
                 }
             ],
-            "template": "tag_rule"
+            
         }
     ]
 }'
