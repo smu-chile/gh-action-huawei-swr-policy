@@ -139,85 +139,22 @@ function create_swr_policy() {
 --header 'Content-Type: application/json;charset=utf8' \
 --header "X-Auth-Token: $HUAWEI_TOKEN" \
 --data-raw '{
-
     "algorithm": "or",
-
     "rules": [
-
         {
-
             "template": "tag_rule",
-
             "params": {
-
                 "num": "5"
-
             },
-
             "tag_selectors": [
-
                 {
-
                     "kind": "regexp",
-
-                    "pattern": "prod-*"
-
+                    "pattern": "(prod|dev|stg)-.*"
                 }
-
             ]
-
-        },
-
-        {
-
-            "template": "tag_rule",
-
-            "params": {
-
-                "num": "5"
-
-            },
-
-            "tag_selectors": [
-
-                {
-
-                    "kind": "regexp",
-
-                    "pattern": "dev-*"
-
-                }
-
-            ]
-
-        },
-
-        {
-
-            "template": "tag_rule",
-
-            "params": {
-
-                "num": "5"
-
-            },
-
-            "tag_selectors": [
-
-                {
-
-                    "kind": "regexp",
-
-                    "pattern": "stg-*"
-
-                }
-
-            ]
-
         }
-
     ]
-
+    
 }'
   echo "== FINISHED CREATE POLICY"
 
