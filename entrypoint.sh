@@ -142,21 +142,21 @@ function create_swr_policy() {
     "algorithm": "or",
     "rules": [
         {
-            "template": "date_rule",
+            "template": "tag_rule",
             "params": {
                 "num": "5"
             },
             "tag_selectors": [
                 {
                     "kind": "label",
-                    "pattern": "v3"
+                    "pattern": "v5"
                 },
+
                 {
                     "kind": "regexp",
                     "pattern": "prod-*"
                 }
-            ],
-            
+            ]
         }
     ]
 }'
