@@ -4,8 +4,8 @@ set -e
 function main() {
   
    
-  sanitize "${INPUT_HUAWEI_ACCESS_KEY_ID}" "HUAWEI_ACCESS_KEY_ID"
-  sanitize "${INPUT_HUAWEI_SECRET_ACCESS_KEY}" "HUAWEI_SECRET_ACCESS_KEY"
+  sanitize "${INPUT_HUAWEI_ACCESS_KEY_ID}" "huawei_access_key_id"
+  sanitize "${INPUT_HUAWEI_SECRET_ACCESS_KEY}" "huawei_secret_access_key"
   sanitize "${INPUT_REGION}" "region"
   sanitize "${INPUT_REPO}" "repo"
   sanitize "${INPUT_SWR_REGISTRY}" "swr_registry"
