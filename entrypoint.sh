@@ -4,8 +4,8 @@ set -e
 function main() {
   
    
-  sanitize "${INPUT_ACCESS_KEY_ID}" "access_key_id"
-  sanitize "${INPUT_SECRET_ACCESS_KEY}" "secret_access_key"
+  sanitize "${INPUT_HUAWEI_ACCESS_KEY_ID}" "HUAWEI_ACCESS_KEY_ID"
+  sanitize "${INPUT_HUAWEI_SECRET_ACCESS_KEY}" "HUAWEI_SECRET_ACCESS_KEY"
   sanitize "${INPUT_REGION}" "region"
   sanitize "${INPUT_REPO}" "repo"
   sanitize "${INPUT_SWR_REGISTRY}" "swr_registry"
@@ -56,16 +56,16 @@ function sanitize() {
 }
 
 function huawei_configure() {
-  export HUAWEI_ACCESS_KEY_ID=${INPUT_ACCESS_KEY_ID}
-  export HUAWEI_SECRET_ACCESS_KEY=${INPUT_SECRET_ACCESS_KEY}
+  export HUAWEI_HUAWEI_ACCESS_KEY_ID=${INPUT_HUAWEI_ACCESS_KEY_ID}
+  export HUAWEI_HUAWEI_SECRET_ACCESS_KEY=${INPUT_HUAWEI_SECRET_ACCESS_KEY}
   export HUAWEI_DEFAULT_REGION=${INPUT_REGION}
-  export HUAWEI_LOGIN=$(printf "${INPUT_ACCESS_KEY_ID}" | openssl dgst -binary -sha256 -hmac "${INPUT_SECRET_ACCESS_KEY}" | od -An -vtx1 | sed 's/[ \n]//g' | sed 'N;s/\n//')
+  export HUAWEI_LOGIN=$(printf "${INPUT_HUAWEI_ACCESS_KEY_ID}" | openssl dgst -binary -sha256 -hmac "${INPUT_HUAWEI_SECRET_ACCESS_KEY}" | od -An -vtx1 | sed 's/[ \n]//g' | sed 'N;s/\n//')
 
 }
 
 function login() {
   echo "== START LOGIN"
-  export LOGIN_COMMAND=$(docker login -u $HUAWEI_DEFAULT_REGION@$HUAWEI_ACCESS_KEY_ID -p  $HUAWEI_LOGIN ${INPUT_SWR_REGISTRY})
+  export LOGIN_COMMAND=$(docker login -u $HUAWEI_DEFAULT_REGION@$HUAWEI_HUAWEI_ACCESS_KEY_ID -p  $HUAWEI_LOGIN ${INPUT_SWR_REGISTRY})
   echo $LOGIN_COMMAND
   echo "== FINISHED LOGIN"
 }
@@ -149,7 +149,7 @@ function create_swr_policy() {
             "tag_selectors": [
                 {
                     "kind": "regexp",
-                    "pattern": "(prod|dev|stg)-.*"
+                    "pattern": "prod-*"
                 }
             ]
         }
