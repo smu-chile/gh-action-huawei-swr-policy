@@ -5,8 +5,8 @@ This Action allows you to create Docker images and push into a SWR repository. A
 ## Parameters
 | Parameter           | Type     | Default                                | Description                                                                                                              |
 | ------------------- | -------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `access_key_id`     | `string` |                                        | Your HUAWEI access key id                                                                                                   |
-| `secret_access_key` | `string` |                                        | Your HUAWEI secret access key                                                                                               |
+| `huawei_access_key_id`     | `string` |                                        | Your HUAWEI access key id                                                                                                   |
+| `huawei_secret_access_key` | `string` |                                        | Your HUAWEI secret access key                                                                                               |
 | `swr_registry`      | `string` |                                        | Your SWR HUAWEI                                                                                                          |
 | `repo`              | `string` |                                        | Name of your SWR repository                                                                                              |
 | `region`            | `string` |                                        | Your HUAWEI region                                                                                                          |
@@ -34,8 +34,8 @@ jobs:
     steps:
     - uses: smu-chile/gh-action-huawei-swr-policy@master
       with:
-        access_key_id: ${{ secrets.HUAWEI_ACCESS_KEY_ID }}
-        secret_access_key: ${{ secrets.HUAWEI_SECRET_ACCESS_KEY }}
+        huawei_access_key_id: ${{ secrets.HUAWEI_ACCESS_KEY_ID }}
+        huawei_secret_access_key: ${{ secrets.HUAWEI_SECRET_ACCESS_KEY }}
         swr_registry: ${{ secrets.SWR_REGISTRY }}
         region: la-south-2
         repo: ${{ github.repository }}
