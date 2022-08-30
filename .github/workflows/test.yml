@@ -10,8 +10,8 @@ jobs:
     - name: Create and upload image
       uses: ./
       with:
-        access_key_id: ${{ secrets.HUAWEI_ACCESS_KEY_ID }}
-        secret_access_key: ${{ secrets.HUAWEI_SECRET_ACCESS_KEY }}
+        huawei_access_key_id: ${{ secrets.HUAWEI_ACCESS_KEY_ID }}
+        huawei_secret_access_key: ${{ secrets.HUAWEI_SECRET_ACCESS_KEY }}
         swr_registry: ${{ secrets.SWR_REGISTRY }}
         region: la-south-2
         repo: ${{ github.repository }}
