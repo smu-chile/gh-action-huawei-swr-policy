@@ -5,10 +5,10 @@ branding:
   color: orange
 description: Create Docker images and push into a SWR repository. It can create it and attach a policy to store a max amount
 inputs:
-  huawei_access_key_id:
+  access_key_id:
     description: The HUAWEI access key id
     required: true
-  huawei_secret_access_key:
+  secret_access_key:
     description: The HUAWEI secret access key
     required: true
   swr_registry:

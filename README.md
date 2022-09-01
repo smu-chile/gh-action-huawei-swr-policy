@@ -3,10 +3,11 @@
 This Action allows you to create Docker images and push into a SWR repository. Also, it checks if the repository exist, otherwise, it creates it.
 
 ## Parameters
+
 | Parameter           | Type     | Default                                | Description                                                                                                              |
 | ------------------- | -------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `huawei_access_key_id`     | `string` |                                        | Your HUAWEI access key id                                                                                                   |
-| `huawei_secret_access_key` | `string` |                                        | Your HUAWEI secret access key                                                                                               |
+| `access_key_id`     | `string` |                                        | Your HUAWEI access key id                                                                                                   |
+| `secret_access_key` | `string` |                                        | Your HUAWEI secret access key                                                                                               |
 | `swr_registry`      | `string` |                                        | Your SWR HUAWEI                                                                                                          |
 | `repo`              | `string` |                                        | Name of your SWR repository                                                                                              |
 | `region`            | `string` |                                        | Your HUAWEI region                                                                                                          |
@@ -24,9 +25,8 @@ This Action allows you to create Docker images and push into a SWR repository. A
 | `swr_namespace`     | `string` | `smu-chile`                            | SWR Organization name                                                                                                    |
 | `swr_repos`         | `string` |                                        | Image repository name                                                                                                    |
 
-
-
 ## Usage
+
 ```yaml
 jobs:
   build-and-push:
@@ -34,8 +34,8 @@ jobs:
     steps:
     - uses: smu-chile/gh-action-huawei-swr-policy@master
       with:
-        huawei_access_key_id: ${{ secrets.HUAWEI_ACCESS_KEY_ID }}
-        huawei_secret_access_key: ${{ secrets.HUAWEI_SECRET_ACCESS_KEY }}
+        access_key_id: ${{ secrets.HUAWEI_ACCESS_KEY_ID }}
+        secret_access_key: ${{ secrets.HUAWEI_SECRET_ACCESS_KEY }}
         swr_registry: ${{ secrets.SWR_REGISTRY }}
         region: la-south-2
         repo: ${{ github.repository }}
@@ -53,7 +53,10 @@ jobs:
 ```
 
 ## Reference
-* https://github.com/smu-chile/aws-ecr-policy-action
-* https://support.huaweicloud.com/intl/en-us/api-swr/swr_02_0101.html  
+
+* <https://github.com/smu-chile/aws-ecr-policy-action>
+* <https://support.huaweicloud.com/intl/en-us/api-swr/swr_02_0101.html>  
+
 ## License
+
 The MIT License (MIT)
