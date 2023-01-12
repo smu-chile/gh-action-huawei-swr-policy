@@ -22,7 +22,11 @@ function main() {
   check_behavior_mode
   huawei_configure
   login
-  docker_build
+  if [ $INPUT_BEHAVIOR == "upload" ] ; then
+    echo "== SKIP BUILD, BEHAVIOR IS UPLOAD"
+  else
+    docker_build
+  fi;
   docker_tag
   create_token
   check_swr_policy
