@@ -23,7 +23,7 @@ function main() {
   huawei_configure
   login
   if [ $INPUT_BEHAVIOR == "upload" ] ; then
-    echo "== SHIP BUILD BEHAVIOR UPLOAD"
+    echo "== SKIP BUILD, BEHAVIOR IS UPLOAD"
   else
     docker_build
   fi;
